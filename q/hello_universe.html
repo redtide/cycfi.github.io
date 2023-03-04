@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.16">
-<title>Home - Cycfi</title>
+<title>Hello, Universe - Q Audio DSP Library</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -436,38 +436,533 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge .cm {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .c1 {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .c, pre.rouge .cd {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+pre.rouge .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+pre.rouge .ge {
+  color: #000000;
+  font-style: italic;
+}
+pre.rouge .gr {
+  color: #aa0000;
+}
+pre.rouge .gh {
+  color: #999999;
+}
+pre.rouge .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #aaaaaa;
+}
+pre.rouge .gt {
+  color: #aa0000;
+}
+pre.rouge .kc {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kd {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #009999;
+}
+pre.rouge .mh {
+  color: #009999;
+}
+pre.rouge .il {
+  color: #009999;
+}
+pre.rouge .mi {
+  color: #009999;
+}
+pre.rouge .mo {
+  color: #009999;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #009999;
+}
+pre.rouge .sb {
+  color: #d14;
+}
+pre.rouge .sc {
+  color: #d14;
+}
+pre.rouge .sd {
+  color: #d14;
+}
+pre.rouge .s2 {
+  color: #d14;
+}
+pre.rouge .se {
+  color: #d14;
+}
+pre.rouge .sh {
+  color: #d14;
+}
+pre.rouge .si {
+  color: #d14;
+}
+pre.rouge .sx {
+  color: #d14;
+}
+pre.rouge .sr {
+  color: #009926;
+}
+pre.rouge .s1 {
+  color: #d14;
+}
+pre.rouge .ss {
+  color: #990073;
+}
+pre.rouge .s {
+  color: #d14;
+}
+pre.rouge .na {
+  color: #008080;
+}
+pre.rouge .bp {
+  color: #999999;
+}
+pre.rouge .nb {
+  color: #0086B3;
+}
+pre.rouge .nc {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #008080;
+}
+pre.rouge .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #800080;
+}
+pre.rouge .ne {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nf {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #555555;
+}
+pre.rouge .nt {
+  color: #000080;
+}
+pre.rouge .vc {
+  color: #008080;
+}
+pre.rouge .vg {
+  color: #008080;
+}
+pre.rouge .vi {
+  color: #008080;
+}
+pre.rouge .nv {
+  color: #008080;
+}
+pre.rouge .ow {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .o {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #bbbbbb;
+}
+pre.rouge {
+  background-color: #f8f8f8;
+}
+</style>
 </head>
 <body class="article">
 <div id="header">
-<h1>Home - Cycfi</h1>
+<h1>Hello, Universe - Q Audio DSP Library</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_the_synth">The Synth</a></li>
+<li><a href="#_the_oscillator">The Oscillator</a></li>
+<li><a href="#_processing_midi">Processing MIDI</a></li>
+<li><a href="#_the_main_function">The Main Function</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Welcome to Cycfi organization!</p>
+<p>Let us move on to a more elaborate example. How about a fully functional,
+bandwidth limited square wave synthesizer with ADSR envelope that controls an
+amplifier and a resonant filter and control the note-on and note-off using
+MIDI? Sounds good? This example is complete and self-contained in one .cpp
+file, kept as simple as possible to highlight the ease-of-use.</p>
+</div>
+<div class="paragraph">
+<p>The full example can be found here:
+<a href="https://github.com/cycfi/Q/blob/master/example/square_synth.cpp">example/square_synth.cpp</a>.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s a short video clip:</p>
+</div>
+<div class="videoblock">
+<div class="content">
+<iframe width="732" height="462" src="https://player.vimeo.com/video/419775584" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+<div class="paragraph">
+<p>After building the program, make sure you have a MIDI keyboard connected
+before starting the application. At startup, the app will present you with a
+list of available MIDI hardware and will ask you what you want to use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>================================================================================
+Available MIDI Devices (ID : "Name" inputs/outputs):
+0 : "Code 61 USB MIDI" 1/0
+1 : "Code 61 MIDI DIN" 1/0
+2 : "Code 61 Mackie/HUI" 1/0
+3 : "Code 61 Editor" 1/0
+4 : "ZOOM R16_R24" 1/0
+5 : "Code 61 USB MIDI" 0/1
+6 : "Code 61 MIDI DIN" 0/1
+7 : "Code 61 Mackie/HUI" 0/1
+8 : "Code 61 Editor" 0/1
+9 : "ZOOM R16_R24" 0/1
+================================================================================
+Choose MIDI Device ID: 0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And then a list of audio devices to choose from:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>================================================================================
+Available Audio Devices (ID : "Name" inputs/outputs):
+0 : "Built-in Microphone" 2/0
+1 : "Built-in Output" 0/2
+2 : "HDMI" 0/2
+3 : "ZOOM R16_R24 Driver" 8/2
+================================================================================
+Choose Audio Device ID: 3</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Take note that the demo is a console application. The Q library does not have
+a GUI, for good reason! We want to keep it as simple as possible. The GUI is
+taken cared of by other libraries (e.g.
+<a href="https://github.com/cycfi/elements">Elements</a>).</p>
+</div>
+<div class="paragraph">
+<p>After choosing the MIDI and Audio driver, the synth is playable. The synth is
+monophonic and responds to velocity only, for simplicity.</p>
+</div>
+<div class="paragraph">
+<p>There are more demo applications in the example directory. After this quick
+tutorial, free to explore.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_about_the_author">About the Author</h2>
+<h2 id="_the_synth">The Synth</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Joel got into electronics and programming in the 80s because almost
-everything in music, his first love, is becoming electronic and digital.
-Since then, he builds his own guitars, effect boxes and synths. He enjoys
-playing distortion-laden rock guitar, composes and produces his own music in
-his home studio.</p>
+<p>Here&#8217;s the actual synthesizer with the processing loop:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="k">struct</span> <span class="n">my_square_synth</span> <span class="o">:</span> <span class="n">q</span><span class="o">::</span><span class="n">port_audio_stream</span>
+   <span class="p">{</span>
+      <span class="n">my_square_synth</span><span class="p">(</span><span class="n">q</span><span class="o">::</span><span class="n">envelope</span><span class="o">::</span><span class="n">config</span> <span class="n">env_cfg</span><span class="p">,</span> <span class="kt">int</span> <span class="n">device_id</span><span class="p">)</span>
+       <span class="o">:</span> <span class="n">port_audio_stream</span><span class="p">(</span><span class="n">q</span><span class="o">::</span><span class="n">audio_device</span><span class="o">::</span><span class="n">get</span><span class="p">(</span><span class="n">device_id</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+       <span class="p">,</span> <span class="n">env</span><span class="p">(</span><span class="n">env_cfg</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">sampling_rate</span><span class="p">())</span>
+       <span class="p">,</span> <span class="n">filter</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span>
+      <span class="p">{}</span>
+
+      <span class="kt">void</span> <span class="n">process</span><span class="p">(</span><span class="n">out_channels</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">out</span><span class="p">)</span>
+      <span class="p">{</span>
+         <span class="k">auto</span> <span class="n">left</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+         <span class="k">auto</span> <span class="n">right</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+         <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">frame</span> <span class="o">:</span> <span class="n">out</span><span class="p">.</span><span class="n">frames</span><span class="p">())</span>
+         <span class="p">{</span>
+            <span class="c1">// Generate the ADSR envelope
+</span>            <span class="k">auto</span> <span class="n">env_</span> <span class="o">=</span> <span class="n">env</span><span class="p">();</span>
+
+            <span class="c1">// Set the filter frequency
+</span>            <span class="n">filter</span><span class="p">.</span><span class="n">cutoff</span><span class="p">(</span><span class="n">env_</span><span class="p">);</span>
+
+            <span class="c1">// Synthesize the square wave
+</span>            <span class="k">auto</span> <span class="n">val</span> <span class="o">=</span> <span class="n">q</span><span class="o">::</span><span class="n">square</span><span class="p">(</span><span class="n">phase</span><span class="o">++</span><span class="p">);</span>
+
+            <span class="c1">// Apply the envelope (amplifier and filter) with soft clip
+</span>            <span class="n">val</span> <span class="o">=</span> <span class="n">clip</span><span class="p">(</span><span class="n">filter</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="o">*</span> <span class="n">env_</span><span class="p">);</span>
+
+            <span class="c1">// Output
+</span>            <span class="n">right</span><span class="p">[</span><span class="n">frame</span><span class="p">]</span> <span class="o">=</span> <span class="n">left</span><span class="p">[</span><span class="n">frame</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span><span class="p">;</span>
+         <span class="p">}</span>
+      <span class="p">}</span>
+
+      <span class="n">q</span><span class="o">::</span><span class="n">phase_iterator</span> <span class="n">phase</span><span class="p">;</span>            <span class="c1">// The phase iterator
+</span>      <span class="n">q</span><span class="o">::</span><span class="n">envelope</span>       <span class="n">env</span><span class="p">;</span>              <span class="c1">// The envelope
+</span>      <span class="n">q</span><span class="o">::</span><span class="n">reso_filter</span>    <span class="n">filter</span><span class="p">;</span>           <span class="c1">// The resonant filter
+</span>      <span class="n">q</span><span class="o">::</span><span class="n">soft_clip</span>      <span class="n">clip</span><span class="p">;</span>             <span class="c1">// Soft clip
+</span>   <span class="p">};</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Joel de Guzman is the principal architect and engineer at
-<a href="https://www.cycfi.com/">Cycfi Research</a> and a consultant at <a href="https://ciere.com/">Ciere Consulting</a>.
-He is a software engineer specializing in advanced C++ and an advocate of Open Source.
-He has authored a number of highly successful Open Source projects such as
-<a href="https://tinyurl.com/ydhotlaf">Boost.Spirit</a>, <a href="https://tinyurl.com/y6vkeo5t">Boost.Phoenix</a>
-and <a href="https://tinyurl.com/ybn5oq9v">Boost.Fusion</a>.
-These libraries are all part of the <a href="https://tinyurl.com/jubgged">Boost Libraries</a>,
-a well respected, peer-reviewed, Open Source, collaborative development effort.</p>
+<p>Our synth, a subclass of <code>q::port_audio_stream</code>, sets up buffers for the
+input and output audio streams and presents those to our processing loop (the
+<code>process</code> function above). In this example, we setup an audio stream with the
+selected device, no inputs and two (stereo) outputs:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++"><span class="n">port_audio_stream</span><span class="p">(</span><span class="n">q</span><span class="o">::</span><span class="n">audio_device</span><span class="o">::</span><span class="n">get</span><span class="p">(</span><span class="n">device_id</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_oscillator">The Oscillator</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Behind the scenes, there&#8217;s a lot going on here, actually. But you will notice
+that emphasis is given to making the library very readable, easy to
+understand and follow by breaking down complex tasks into smaller manageable
+tasks and using function composition at progressively higher levels, while
+maintaining simplicity and clarity of intent.</p>
+</div>
+<div class="paragraph">
+<p>The synthesizer above is composed of smaller building blocks: fine grained
+C++ function objects. For example, here&#8217;s the square wave oscillator
+(bandwidth limited using poly_blep).</p>
+</div>
+<div class="paragraph">
+<p>For now, we will skim over details such as the
+<code>envelope</code>, <code>phase</code>, and <code>phase_iterator</code>, and  and this thing called <code>poly
+blep</code>. The important point, exemplified here, is that we want to keep our
+building blocks as simple and minimal as possible. We will cover that in
+greater detail later.</p>
+</div>
+<div class="paragraph">
+<p>The astute reader may notice that our <code>square_synth</code> class does not even
+have state!</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="k">struct</span> <span class="n">square_synth</span>
+   <span class="p">{</span>
+      <span class="k">constexpr</span> <span class="kt">float</span> <span class="k">operator</span><span class="p">()(</span><span class="n">phase</span> <span class="n">p</span><span class="p">,</span> <span class="n">phase</span> <span class="n">dt</span><span class="p">)</span> <span class="k">const</span>
+      <span class="p">{</span>
+         <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">middle</span> <span class="o">=</span> <span class="n">phase</span><span class="o">::</span><span class="n">middle</span><span class="p">();</span>
+         <span class="k">auto</span> <span class="n">r</span> <span class="o">=</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="n">middle</span> <span class="o">?</span> <span class="mf">1.0</span><span class="n">f</span> <span class="o">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="n">f</span><span class="p">;</span>
+
+         <span class="c1">// Correct rising discontinuity
+</span>         <span class="n">r</span> <span class="o">+=</span> <span class="n">poly_blep</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">dt</span><span class="p">);</span>
+
+         <span class="c1">// Correct falling discontinuity
+</span>         <span class="n">r</span> <span class="o">-=</span> <span class="n">poly_blep</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">middle</span><span class="p">,</span> <span class="n">dt</span><span class="p">);</span>
+
+         <span class="k">return</span> <span class="n">r</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="k">constexpr</span> <span class="kt">float</span> <span class="k">operator</span><span class="p">()(</span><span class="n">phase_iterator</span> <span class="n">i</span><span class="p">)</span> <span class="k">const</span>
+      <span class="p">{</span>
+         <span class="k">return</span> <span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">)(</span><span class="n">i</span><span class="p">.</span><span class="n">_phase</span><span class="p">,</span> <span class="n">i</span><span class="p">.</span><span class="n">_incr</span><span class="p">);</span>
+      <span class="p">}</span>
+   <span class="p">};</span>
+
+   <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">square</span> <span class="o">=</span> <span class="n">square_synth</span><span class="p">{};</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Yeah, that&#8217;s the complete oscillator. That&#8217;s all there is to it! :wink:</p>
+</div>
+<div class="paragraph">
+<p>The modern C savvy programmer will immediately notice the use of
+`constexpr`, applied judiciously all throughout the library. Such modern c
+facilities allow the compiler to generate extremely efficient code, even
+those that are generated at compile time. That means, for this example, that
+one can build an oscillator at compile time if needed, perhaps with constant
+wavetable results stored in read-only memory.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_processing_midi">Processing MIDI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>midi_processor</code> takes care of MIDI events. Your application will have
+its own MIDI processor that deals with MIDI events that you are interested
+in. For this simple example, we simply want to process note-on and note-off
+events. On note-on events, our MIDI processor sets `my_square_synth&#8217;s note
+frequency and triggers its envelope for attack. On note-off events, our MIDI
+processor initiates the envelope&#8217;s release.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="k">struct</span> <span class="n">my_midi_processor</span> <span class="o">:</span> <span class="n">midi</span><span class="o">::</span><span class="n">processor</span>
+   <span class="p">{</span>
+      <span class="k">using</span> <span class="n">midi</span><span class="o">::</span><span class="n">processor</span><span class="o">::</span><span class="k">operator</span><span class="p">();</span>
+
+      <span class="n">my_midi_processor</span><span class="p">(</span><span class="n">my_square_synth</span><span class="o">&amp;</span> <span class="n">synth</span><span class="p">)</span>
+       <span class="o">:</span> <span class="n">_synth</span><span class="p">(</span><span class="n">synth</span><span class="p">)</span>
+      <span class="p">{}</span>
+
+      <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="n">midi</span><span class="o">::</span><span class="n">note_on</span> <span class="n">msg</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">time</span><span class="p">)</span>
+      <span class="p">{</span>
+         <span class="n">_key</span> <span class="o">=</span> <span class="n">msg</span><span class="p">.</span><span class="n">key</span><span class="p">();</span>
+         <span class="k">auto</span> <span class="n">freq</span> <span class="o">=</span> <span class="n">midi</span><span class="o">::</span><span class="n">note_frequency</span><span class="p">(</span><span class="n">_key</span><span class="p">);</span>
+         <span class="n">_synth</span><span class="p">.</span><span class="n">phase</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">_synth</span><span class="p">.</span><span class="n">sampling_rate</span><span class="p">());</span>
+         <span class="n">_synth</span><span class="p">.</span><span class="n">env</span><span class="p">.</span><span class="n">trigger</span><span class="p">(</span><span class="kt">float</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">velocity</span><span class="p">())</span> <span class="o">/</span> <span class="mi">128</span><span class="p">);</span>
+      <span class="p">}</span>
+
+      <span class="kt">void</span> <span class="k">operator</span><span class="p">()(</span><span class="n">midi</span><span class="o">::</span><span class="n">note_off</span> <span class="n">msg</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">time</span><span class="p">)</span>
+      <span class="p">{</span>
+         <span class="k">if</span> <span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">key</span><span class="p">()</span> <span class="o">==</span> <span class="n">_key</span><span class="p">)</span>
+            <span class="n">_synth</span><span class="p">.</span><span class="n">env</span><span class="p">.</span><span class="n">release</span><span class="p">();</span>
+      <span class="p">}</span>
+
+      <span class="n">std</span><span class="o">::</span><span class="kt">uint8_t</span>      <span class="n">_key</span><span class="p">;</span>
+      <span class="n">my_square_synth</span><span class="o">&amp;</span>  <span class="n">_synth</span><span class="p">;</span>
+   <span class="p">};</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_main_function">The Main Function</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the main function, we instantiate <code>my_square_synth</code> and
+<code>my_midi_processor</code>. The synth constructor, in case you haven&#8217;t noticed yet,
+requires an envelope configuration (<code>envelope::config</code>). Here, we provide our
+configuration. Take note that in this example, the envelope parameters are
+constant, for the sake of simplicity, but you can definitely have these
+controllable by the user by writing your own MIDI processor that deals with
+MIDI control change messages.</p>
+</div>
+<div class="paragraph">
+<p>Again, take note of the abundant use of user-defined literals for units such
+as duration (e.g. 100_ms) and level (e.g. -12_dB).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="k">auto</span> <span class="n">env_cfg</span> <span class="o">=</span> <span class="n">q</span><span class="o">::</span><span class="n">envelope</span><span class="o">::</span><span class="n">config</span>
+   <span class="p">{</span>
+      <span class="mi">100</span><span class="n">_ms</span>      <span class="c1">// attack rate
+</span>    <span class="p">,</span> <span class="mi">1</span><span class="n">_s</span>         <span class="c1">// decay rate
+</span>    <span class="p">,</span> <span class="o">-</span><span class="mi">12</span><span class="n">_dB</span>      <span class="c1">// sustain level
+</span>    <span class="p">,</span> <span class="mi">5</span><span class="n">_s</span>         <span class="c1">// sustain rate
+</span>    <span class="p">,</span> <span class="mi">1</span><span class="n">_s</span>         <span class="c1">// release rate
+</span>   <span class="p">};</span>
+
+   <span class="n">my_square_synth</span> <span class="n">synth</span><span class="p">{</span> <span class="n">env_cfg</span> <span class="p">};</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then, we create <code>my_midi_processor</code>, giving it a reference to
+<code>my_square_synth</code>. We&#8217;ll also need a <code>midi_input_stream</code> that receives the
+actual incoming MIDI messages from the chosen hardware.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="n">q</span><span class="o">::</span><span class="n">midi_input_stream</span> <span class="n">stream</span><span class="p">;</span>
+   <span class="n">my_midi_processor</span> <span class="n">proc</span><span class="p">{</span> <span class="n">synth</span> <span class="p">};</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now we&#8217;re all set. We start the synth and enter a loop that exits when the
+user presses ctrl-c (in which case the running flag becomes false). In the
+loop, we give our MIDI processor a chance to process incoming MIDI events as
+they arrive from the MIDI stream:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="n">synth</span><span class="p">.</span><span class="n">start</span><span class="p">();</span>
+   <span class="k">while</span> <span class="p">(</span><span class="n">running</span><span class="p">)</span>
+      <span class="n">stream</span><span class="p">.</span><span class="n">process</span><span class="p">(</span><span class="n">proc</span><span class="p">);</span>
+   <span class="n">synth</span><span class="p">.</span><span class="n">stop</span><span class="p">();</span></code></pre>
+</div>
+</div>
+<hr>
+<div class="paragraph">
+<p><em>Copyright (c) 2014-2023 Joel de Guzman. All rights reserved.</em>
+<em>Distributed under the <a href="https://opensource.org/licenses/MIT">MIT License</a></em></p>
 </div>
 </div>
 </div>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.16">
-<title>Home - Cycfi</title>
+<title>Hello, World - Q Audio DSP Library</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -436,38 +436,297 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge .cm {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .c1 {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .c, pre.rouge .cd {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+pre.rouge .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+pre.rouge .ge {
+  color: #000000;
+  font-style: italic;
+}
+pre.rouge .gr {
+  color: #aa0000;
+}
+pre.rouge .gh {
+  color: #999999;
+}
+pre.rouge .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #aaaaaa;
+}
+pre.rouge .gt {
+  color: #aa0000;
+}
+pre.rouge .kc {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kd {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #009999;
+}
+pre.rouge .mh {
+  color: #009999;
+}
+pre.rouge .il {
+  color: #009999;
+}
+pre.rouge .mi {
+  color: #009999;
+}
+pre.rouge .mo {
+  color: #009999;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #009999;
+}
+pre.rouge .sb {
+  color: #d14;
+}
+pre.rouge .sc {
+  color: #d14;
+}
+pre.rouge .sd {
+  color: #d14;
+}
+pre.rouge .s2 {
+  color: #d14;
+}
+pre.rouge .se {
+  color: #d14;
+}
+pre.rouge .sh {
+  color: #d14;
+}
+pre.rouge .si {
+  color: #d14;
+}
+pre.rouge .sx {
+  color: #d14;
+}
+pre.rouge .sr {
+  color: #009926;
+}
+pre.rouge .s1 {
+  color: #d14;
+}
+pre.rouge .ss {
+  color: #990073;
+}
+pre.rouge .s {
+  color: #d14;
+}
+pre.rouge .na {
+  color: #008080;
+}
+pre.rouge .bp {
+  color: #999999;
+}
+pre.rouge .nb {
+  color: #0086B3;
+}
+pre.rouge .nc {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #008080;
+}
+pre.rouge .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #800080;
+}
+pre.rouge .ne {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nf {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #555555;
+}
+pre.rouge .nt {
+  color: #000080;
+}
+pre.rouge .vc {
+  color: #008080;
+}
+pre.rouge .vg {
+  color: #008080;
+}
+pre.rouge .vi {
+  color: #008080;
+}
+pre.rouge .nv {
+  color: #008080;
+}
+pre.rouge .ow {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .o {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #bbbbbb;
+}
+pre.rouge {
+  background-color: #f8f8f8;
+}
+</style>
 </head>
 <body class="article">
 <div id="header">
-<h1>Home - Cycfi</h1>
+<h1>Hello, World - Q Audio DSP Library</h1>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Welcome to Cycfi organization!</p>
+<p>Here&#8217;s a quick "Hello, World" example that highlights the simplicity of the Q
+DSP Library: a delay effects processor.</p>
+</div>
+<div class="paragraph">
+<p>The full example can be found here:
+<a href="https://github.com/cycfi/Q/blob/master/example/delay.cpp">example/delay.cpp</a>.</p>
+</div>
+<div class="paragraph">
+<p>The example loads a pre-recorded wav file and plays it back with processing.
+The raw audio source will be played in the left channel while the delayed
+signal will be played in the right channel. Pretty much as straightforward as
+possible. The audio will be played using the currently selected audio device.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_about_the_author">About the Author</h2>
+<h2 id="_the_dsp_code">The DSP Code</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Joel got into electronics and programming in the 80s because almost
-everything in music, his first love, is becoming electronic and digital.
-Since then, he builds his own guitars, effect boxes and synths. He enjoys
-playing distortion-laden rock guitar, composes and produces his own music in
-his home studio.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="c1">// 1: fractional delay
+</span>   <span class="n">q</span><span class="o">::</span><span class="n">delay</span> <span class="n">_delay</span><span class="p">{</span> <span class="mi">350</span><span class="n">_ms</span><span class="p">,</span> <span class="mi">44100</span> <span class="p">};</span>
+
+   <span class="c1">// 2: Mix the signal s, and the delayed signal (where s is the incoming sample)
+</span>   <span class="k">auto</span> <span class="n">_y</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">_delay</span><span class="p">();</span>
+
+   <span class="c1">// 3: Feed back the result to the delay
+</span>   <span class="n">_delay</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">_y</span> <span class="o">*</span> <span class="n">_feedback</span><span class="p">);</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Joel de Guzman is the principal architect and engineer at
-<a href="https://www.cycfi.com/">Cycfi Research</a> and a consultant at <a href="https://ciere.com/">Ciere Consulting</a>.
-He is a software engineer specializing in advanced C++ and an advocate of Open Source.
-He has authored a number of highly successful Open Source projects such as
-<a href="https://tinyurl.com/ydhotlaf">Boost.Spirit</a>, <a href="https://tinyurl.com/y6vkeo5t">Boost.Phoenix</a>
-and <a href="https://tinyurl.com/ybn5oq9v">Boost.Fusion</a>.
-These libraries are all part of the <a href="https://tinyurl.com/jubgged">Boost Libraries</a>,
-a well respected, peer-reviewed, Open Source, collaborative development effort.</p>
+<p>Normally, there will be a processing loop that receives the incoming samples,
+<code>s</code>. You place #1, the delay constructor, <code>q::delay</code>, before the processing
+loop and #2 and #3 inside inside the loop.</p>
+</div>
+<div class="paragraph">
+<p>44100 is the desired sampling rate. _feedback is the amount of feedback
+desired (anything from 0.0 to less than 1.0, e.g. 0.85). But take note of
+<code>350_ms</code>. Here, we take advantage of C (from c11) type safe
+<a href="http://tinyurl.com/yafvvb6b">user-defined literals</a>, instead of the usual <code>float</code>
+or <code>double</code> which can be unsafe when values from different units (e.g. frequency
+vs. duration) are mismatched. The Q DSP library makes abundant use of
+user-defined literals for units such as time, frequency and even sound level
+(e.g. 24_dB, instead of a unit-less 24 or worse, a non-intuitive, unit-less
+15.8 —the gain equivalent of 24_dB). Such constants also make the code very
+readable, another objective of this library.</p>
+</div>
+<div class="paragraph">
+<p>Processors such as <code>q::delay</code> are C++ function objects (sometimes called
+functors) that can be composed to form more complex processors. For example
+if you want to filter the delayed signal with a low-pass with a 1 kHz cutoff
+frequency, you apply the <code>q::lowpass</code> filter over the result of the delay:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="n">q</span><span class="o">::</span><span class="n">lowpass</span> <span class="n">_lp</span><span class="p">{</span> <span class="mi">1</span><span class="n">_kHz</span><span class="p">,</span> <span class="mi">44100</span> <span class="p">};</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>then insert the filter where it is needed in the processing loop:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="c1">// 2: Add the signal s, and the delayed, low-pass filtered signal
+</span>   <span class="k">auto</span> <span class="n">_y</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">_lp</span><span class="p">(</span><span class="n">_delay</span><span class="p">());</span></code></pre>
+</div>
+</div>
+<hr>
+<div class="paragraph">
+<p><em>Copyright (c) 2014-2023 Joel de Guzman. All rights reserved.</em>
+<em>Distributed under the <a href="https://opensource.org/licenses/MIT">MIT License</a></em></p>
 </div>
 </div>
 </div>

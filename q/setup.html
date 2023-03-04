@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.16">
-<title>Home - Cycfi</title>
+<title>Setup and Installation - Q Audio DSP Library</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -439,35 +439,213 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>Home - Cycfi</h1>
+<h1>Setup and Installation - Q Audio DSP Library</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_requirements">Requirements</a>
+<ul class="sectlevel2">
+<li><a href="#_c17">C++17</a></li>
+<li><a href="#_git">Git</a></li>
+<li><a href="#_cmake">CMake</a></li>
+<li><a href="#_generating_the_project_using_cmake">Generating the Project using CMake</a></li>
+</ul>
+</li>
+<li><a href="#_macos">MacOS</a></li>
+<li><a href="#_windows">Windows</a></li>
+<li><a href="#_linux">Linux</a></li>
+<li><a href="#_build_and_test">Build and Test</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
-<div id="preamble">
+<div class="sect1">
+<h2 id="_requirements">Requirements</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Welcome to Cycfi organization!</p>
+<p>Here are the basic requirements and dependencies that you need to satisfy in
+order to use the library:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A C++17 compiler</p>
+</li>
+<li>
+<p>git</p>
+</li>
+<li>
+<p><a href="https://cmake.org/">CMake</a> 3.5.1 or higher</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Additionally, the following libraries are dragged as submodules:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <a href="https://github.com/cycfi/infra/">Cycfi infra library</a></p>
+</li>
+<li>
+<p><a href="http://www.portaudio.com/">portaudio</a> Audio I/O library.</p>
+</li>
+<li>
+<p><a href="http://portmedia.sourceforge.net/portmidi/">portmidi</a> MIDI I/O library.</p>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="_c17">C++17</h3>
+<div class="paragraph">
+<p>Q currently supports the MacOS, Windows and Linux. In the Mac, we support
+both <a href="https://developer.apple.com/xcode/">XCode</a>. Q is tested with XCode 10
+and XCode 11. In Windows, we support Windows 10 with
+<a href="https://visualstudio.microsoft.com/vs/">Visual Studio 2019</a>, although it will
+probably also work with older versions of the Visual Studio IDE.
+In Linux, we support both <a href="https://clang.llvm.org/">Clang</a> and <a href="https://gcc.gnu.org/">gcc</a>.
+Get the latest version with a C++17 compiler.
+The <a href="https://www.jetbrains.com/clion/">CLion</a> IDE is supported on all platforms.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_git">Git</h3>
+<div class="paragraph">
+<p>Clone the Q DSP library and its submodules:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>git clone --recurse-submodules https://github.com/cycfi/Q.git</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cmake">CMake</h3>
+<div class="paragraph">
+<p>Make sure you have <a href="https://cmake.org">CMake</a> 3.5.1 or higher.
+Follow the installation procedure for your platform.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_generating_the_project_using_cmake">Generating the Project using CMake</h3>
+<div class="paragraph">
+<p>There are multiple ways to generate a project file using CMake depending on
+your platform and desired IDE, but here are some examples for MacOS 10.14,
+Windows 10 and, and Ubuntu 16.04:</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_about_the_author">About the Author</h2>
+<h2 id="_macos">MacOS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Joel got into electronics and programming in the 80s because almost
-everything in music, his first love, is becoming electronic and digital.
-Since then, he builds his own guitars, effect boxes and synths. He enjoys
-playing distortion-laden rock guitar, composes and produces his own music in
-his home studio.</p>
+<p>Using <a href="https://developer.apple.com/xcode/">XCode</a>:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>CD to the Q library: <code>cd Q</code></p>
+</li>
+<li>
+<p>Make a build directory: 'mkdir build'</p>
+</li>
+<li>
+<p>CD to the the Q/build directory: <code>cd build</code></p>
+</li>
+<li>
+<p>Invoke cmake: <code>cmake -G"Xcode" ../</code></p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>Joel de Guzman is the principal architect and engineer at
-<a href="https://www.cycfi.com/">Cycfi Research</a> and a consultant at <a href="https://ciere.com/">Ciere Consulting</a>.
-He is a software engineer specializing in advanced C++ and an advocate of Open Source.
-He has authored a number of highly successful Open Source projects such as
-<a href="https://tinyurl.com/ydhotlaf">Boost.Spirit</a>, <a href="https://tinyurl.com/y6vkeo5t">Boost.Phoenix</a>
-and <a href="https://tinyurl.com/ybn5oq9v">Boost.Fusion</a>.
-These libraries are all part of the <a href="https://tinyurl.com/jubgged">Boost Libraries</a>,
-a well respected, peer-reviewed, Open Source, collaborative development effort.</p>
+<p>If successful, cmake will generate an XCode project in the build directory.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_windows">Windows</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Using <a href="https://visualstudio.microsoft.com/vs/">Visual Studio 2019</a></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>CD to the Q library: <code>cd Q</code></p>
+</li>
+<li>
+<p>Make a build directory: 'mkdir build'</p>
+</li>
+<li>
+<p>CD to the the Q/build directory: <code>cd build</code></p>
+</li>
+<li>
+<p>Invoke cmake: <code>cmake -G"Visual Studio 16 2019" ../</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If successful, cmake will generate an Visual Studio solution project in the
+build directory.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_linux">Linux</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Using <a href="https://wiki.debian.org/DebianPackageManagement">dpkg packaging system</a>,
+stock g++ compiler and <a href="http://www.codeblocks.org/">CodeBlocks</a>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Install portaudio dependencies: <code>sudo apt-get install libasound-dev</code></p>
+</li>
+<li>
+<p>CD to the Q library: <code>cd Q</code></p>
+</li>
+<li>
+<p>Make a build directory: 'mkdir build'</p>
+</li>
+<li>
+<p>CD to the the Q/build directory: <code>cd build</code></p>
+</li>
+<li>
+<p>Invoke cmake: <code>cmake -G"CodeBlocks - Unix Makefiles" ../</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If successful, cmake will generate a CodeBlocks project in the build
+directory.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_build_and_test">Build and Test</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Build the project generated by cmake.</p>
+</div>
+<div class="paragraph">
+<p>Try running the tests and examples. If you intend to run the executables
+directly from the command line, make sure to change the directory to the same
+level where the <code>audio_files</code> is (e.g. 1 folder up on XCode builds). Some
+tests and examples may require audio clips that are found in this folder.</p>
+</div>
+<div class="paragraph">
+<p>To make sure everything is OK, try running the <code>sin_synth.cpp</code> example. Make
+sure your system&#8217;s default audio device is set up and ready to play audio.
+The <code>sin_synth.cpp</code> program should play a 5 second 440 Hz sine wave. You
+might also want to try running the <code>list_devices.cpp</code> example that prints out
+all detected audio and MIDI devices.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><em>Copyright (c) 2014-2023 Joel de Guzman. All rights reserved.</em>
+<em>Distributed under the <a href="https://opensource.org/licenses/MIT">MIT License</a></em></p>
 </div>
 </div>
 </div>

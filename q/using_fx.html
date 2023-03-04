@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.16">
-<title>Home - Cycfi</title>
+<title>Using FX - Q Audio DSP Library</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -436,38 +436,519 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge .cm {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .c1 {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .c, pre.rouge .cd {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+pre.rouge .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+pre.rouge .ge {
+  color: #000000;
+  font-style: italic;
+}
+pre.rouge .gr {
+  color: #aa0000;
+}
+pre.rouge .gh {
+  color: #999999;
+}
+pre.rouge .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #aaaaaa;
+}
+pre.rouge .gt {
+  color: #aa0000;
+}
+pre.rouge .kc {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kd {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #009999;
+}
+pre.rouge .mh {
+  color: #009999;
+}
+pre.rouge .il {
+  color: #009999;
+}
+pre.rouge .mi {
+  color: #009999;
+}
+pre.rouge .mo {
+  color: #009999;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #009999;
+}
+pre.rouge .sb {
+  color: #d14;
+}
+pre.rouge .sc {
+  color: #d14;
+}
+pre.rouge .sd {
+  color: #d14;
+}
+pre.rouge .s2 {
+  color: #d14;
+}
+pre.rouge .se {
+  color: #d14;
+}
+pre.rouge .sh {
+  color: #d14;
+}
+pre.rouge .si {
+  color: #d14;
+}
+pre.rouge .sx {
+  color: #d14;
+}
+pre.rouge .sr {
+  color: #009926;
+}
+pre.rouge .s1 {
+  color: #d14;
+}
+pre.rouge .ss {
+  color: #990073;
+}
+pre.rouge .s {
+  color: #d14;
+}
+pre.rouge .na {
+  color: #008080;
+}
+pre.rouge .bp {
+  color: #999999;
+}
+pre.rouge .nb {
+  color: #0086B3;
+}
+pre.rouge .nc {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #008080;
+}
+pre.rouge .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #800080;
+}
+pre.rouge .ne {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nf {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #555555;
+}
+pre.rouge .nt {
+  color: #000080;
+}
+pre.rouge .vc {
+  color: #008080;
+}
+pre.rouge .vg {
+  color: #008080;
+}
+pre.rouge .vi {
+  color: #008080;
+}
+pre.rouge .nv {
+  color: #008080;
+}
+pre.rouge .ow {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .o {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #bbbbbb;
+}
+pre.rouge {
+  background-color: #f8f8f8;
+}
+</style>
 </head>
 <body class="article">
 <div id="header">
-<h1>Home - Cycfi</h1>
+<h1>Using FX - Q Audio DSP Library</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_biquad_filters_and_delay">Biquad filters and delay</a>
+<ul class="sectlevel2">
+<li><a href="#_the_fx_processor">The FX processor</a></li>
+<li><a href="#_the_main_function">The Main Function</a></li>
+<li><a href="#_delay_effects">Delay effects</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 <div id="content">
-<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>Welcome to Cycfi organization!</p>
-</div>
-</div>
-</div>
 <div class="sect1">
-<h2 id="_about_the_author">About the Author</h2>
+<h2 id="_biquad_filters_and_delay">Biquad filters and delay</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Joel got into electronics and programming in the 80s because almost
-everything in music, his first love, is becoming electronic and digital.
-Since then, he builds his own guitars, effect boxes and synths. He enjoys
-playing distortion-laden rock guitar, composes and produces his own music in
-his home studio.</p>
+<p>Let&#8217;s take a look into applying some fx in real time on a test audio file. In
+particular we&#8217;re going to look into some biquad highpass and lowpass filters
+as well as a delay effect.
+This examples are complete and self-contained in one .cpp
+file, kept as simple as possible to highlight the ease-of-use.</p>
 </div>
 <div class="paragraph">
-<p>Joel de Guzman is the principal architect and engineer at
-<a href="https://www.cycfi.com/">Cycfi Research</a> and a consultant at <a href="https://ciere.com/">Ciere Consulting</a>.
-He is a software engineer specializing in advanced C++ and an advocate of Open Source.
-He has authored a number of highly successful Open Source projects such as
-<a href="https://tinyurl.com/ydhotlaf">Boost.Spirit</a>, <a href="https://tinyurl.com/y6vkeo5t">Boost.Phoenix</a>
-and <a href="https://tinyurl.com/ybn5oq9v">Boost.Fusion</a>.
-These libraries are all part of the <a href="https://tinyurl.com/jubgged">Boost Libraries</a>,
-a well respected, peer-reviewed, Open Source, collaborative development effort.</p>
+<p>Make sure you have a working sound system and the volume is up :)</p>
+</div>
+<div class="paragraph">
+<p>Take note that the demo is a console application. The Q library does not have
+a GUI, for good reason! We want to keep it as simple as possible. The GUI is
+taken cared of by other libraries (e.g. <a href="https://github.com/cycfi/elements">Elements</a>).</p>
+</div>
+<div class="paragraph">
+<p>There are more demo applications in the example directory. After this quick
+tutorial, free to explore.</p>
+</div>
+<div class="sect2">
+<h3 id="_the_fx_processor">The FX processor</h3>
+<div class="paragraph">
+<p>Here&#8217;s the filter processor:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="k">struct</span> <span class="n">filter_processor</span> <span class="o">:</span> <span class="n">q</span><span class="o">::</span><span class="n">port_audio_stream</span>
+   <span class="p">{</span>
+      <span class="n">filter_processor</span><span class="p">(</span>
+         <span class="n">q</span><span class="o">::</span><span class="n">wav_memory</span><span class="o">&amp;</span> <span class="n">wav</span>
+       <span class="p">,</span> <span class="n">q</span><span class="o">::</span><span class="n">frequency</span> <span class="n">hpfFreq</span>
+       <span class="p">,</span> <span class="n">q</span><span class="o">::</span><span class="n">frequency</span> <span class="n">lpfFreq</span>
+      <span class="p">)</span>
+       <span class="o">:</span> <span class="n">port_audio_stream</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">wav</span><span class="p">.</span><span class="n">sps</span><span class="p">())</span>
+       <span class="p">,</span> <span class="n">_wav</span><span class="p">(</span><span class="n">wav</span><span class="p">)</span>
+       <span class="p">,</span> <span class="n">_hpf</span><span class="p">(</span><span class="n">hpfFreq</span><span class="p">,</span> <span class="n">wav</span><span class="p">.</span><span class="n">sps</span><span class="p">())</span>
+       <span class="p">,</span> <span class="n">_lpf</span><span class="p">(</span><span class="n">lpfFreq</span><span class="p">,</span> <span class="n">wav</span><span class="p">.</span><span class="n">sps</span><span class="p">())</span>
+      <span class="p">{}</span>
+
+      <span class="kt">void</span> <span class="n">process</span><span class="p">(</span><span class="n">out_channels</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">out</span><span class="p">)</span>
+      <span class="p">{</span>
+         <span class="k">auto</span> <span class="n">left</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+         <span class="k">auto</span> <span class="n">right</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+         <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">frame</span> <span class="o">:</span> <span class="n">out</span><span class="p">.</span><span class="n">frames</span><span class="p">())</span>
+         <span class="p">{</span>
+            <span class="c1">// Get the next input sample
+</span>            <span class="k">auto</span> <span class="n">s</span> <span class="o">=</span> <span class="n">_wav</span><span class="p">()[</span><span class="mi">0</span><span class="p">];</span>
+
+            <span class="c1">// Cascaded highpass and lowpass processing
+</span>            <span class="n">_y</span> <span class="o">=</span> <span class="n">_hpf</span><span class="p">(</span><span class="n">s</span><span class="p">),</span>
+            <span class="n">_y</span> <span class="o">=</span> <span class="n">_lpf</span><span class="p">(</span><span class="n">_y</span><span class="p">);</span>
+
+            <span class="c1">// Output
+</span>            <span class="n">left</span><span class="p">[</span><span class="n">frame</span><span class="p">]</span> <span class="o">=</span> <span class="n">_y</span><span class="p">;</span>
+            <span class="n">right</span><span class="p">[</span><span class="n">frame</span><span class="p">]</span> <span class="o">=</span> <span class="n">_y</span><span class="p">;</span>
+         <span class="p">}</span>
+      <span class="p">}</span>
+
+      <span class="n">q</span><span class="o">::</span><span class="n">wav_memory</span><span class="o">&amp;</span>    <span class="n">_wav</span><span class="p">;</span>
+      <span class="n">q</span><span class="o">::</span><span class="n">highpass</span>      <span class="n">_hpf</span><span class="p">;</span>
+      <span class="n">q</span><span class="o">::</span><span class="n">lowpass</span>       <span class="n">_lpf</span><span class="p">;</span>
+      <span class="kt">float</span>             <span class="n">_y</span> <span class="o">=</span> <span class="mf">0.0</span><span class="n">f</span><span class="p">;</span>
+   <span class="p">};</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As seen in other examples too, this is a subclass of <code>q::port_audio_stream</code>.
+We setup an audio stream with the default settings and provide the output
+audio stream to our processing loop (the <code>process</code> function seen above).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="n">filter_processor</span><span class="p">(</span>
+      <span class="n">q</span><span class="o">::</span><span class="n">wav_memory</span><span class="o">&amp;</span> <span class="n">wav</span>
+    <span class="p">,</span> <span class="n">q</span><span class="o">::</span><span class="n">frequency</span> <span class="n">hpfFreq</span>
+    <span class="p">,</span> <span class="n">q</span><span class="o">::</span><span class="n">frequency</span> <span class="n">lpfFreq</span>
+   <span class="p">)</span>
+    <span class="o">:</span> <span class="n">port_audio_stream</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">wav</span><span class="p">.</span><span class="n">sps</span><span class="p">())</span>
+    <span class="p">,</span> <span class="n">_wav</span><span class="p">(</span><span class="n">wav</span><span class="p">)</span>
+    <span class="p">,</span> <span class="n">_hpf</span><span class="p">(</span><span class="n">hpfFreq</span><span class="p">,</span> <span class="n">wav</span><span class="p">.</span><span class="n">sps</span><span class="p">())</span>
+    <span class="p">,</span> <span class="n">_lpf</span><span class="p">(</span><span class="n">lpfFreq</span><span class="p">,</span> <span class="n">wav</span><span class="p">.</span><span class="n">sps</span><span class="p">())</span>
+   <span class="p">{}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Moreover, we provide the class with the data of a wave file loaded from the
+hard disk as well as settings for the filters, namely cutoff frequencies.
+The sampling frequency is of course defined by the wave file.
+The filters are initialized:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="n">_hpf</span><span class="p">(</span><span class="n">hpfFreq</span><span class="p">,</span> <span class="n">wav</span><span class="p">.</span><span class="n">sps</span><span class="p">())</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="n">_lpf</span><span class="p">(</span><span class="n">lpfFreq</span><span class="p">,</span> <span class="n">wav</span><span class="p">.</span><span class="n">sps</span><span class="p">())</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now let&#8217;s take a closer look at the very "flesh" of our example, our process function:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="kt">void</span> <span class="nf">process</span><span class="p">(</span><span class="n">out_channels</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">out</span><span class="p">)</span>
+   <span class="p">{</span>
+      <span class="k">auto</span> <span class="n">left</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+      <span class="k">auto</span> <span class="n">right</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+      <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">frame</span> <span class="o">:</span> <span class="n">out</span><span class="p">.</span><span class="n">frames</span><span class="p">())</span>
+      <span class="p">{</span>
+         <span class="c1">// Get the next input sample
+</span>         <span class="k">auto</span> <span class="n">s</span> <span class="o">=</span> <span class="n">_wav</span><span class="p">()[</span><span class="mi">0</span><span class="p">];</span>
+
+         <span class="c1">// Cascaded highpass and lowpass processing
+</span>         <span class="n">_y</span> <span class="o">=</span> <span class="n">_hpf</span><span class="p">(</span><span class="n">s</span><span class="p">),</span>
+         <span class="n">_y</span> <span class="o">=</span> <span class="n">_lpf</span><span class="p">(</span><span class="n">_y</span><span class="p">);</span>
+
+         <span class="c1">// Output
+</span>         <span class="n">left</span><span class="p">[</span><span class="n">frame</span><span class="p">]</span> <span class="o">=</span> <span class="n">_y</span><span class="p">;</span>
+         <span class="n">right</span><span class="p">[</span><span class="n">frame</span><span class="p">]</span> <span class="o">=</span> <span class="n">_y</span><span class="p">;</span>
+      <span class="p">}</span>
+   <span class="p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The first two lines give us access to the audio output stream:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="k">auto</span> <span class="n">left</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+   <span class="k">auto</span> <span class="n">right</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then we loop through all the samples in the wave file, fetching one-by-one:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="k">auto</span> <span class="n">s</span> <span class="o">=</span> <span class="n">_wav</span><span class="p">()[</span><span class="mi">0</span><span class="p">];</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And apply our filters in cascade to the every sample:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="n">_y</span> <span class="o">=</span> <span class="n">_hpf</span><span class="p">(</span><span class="n">s</span><span class="p">),</span>
+   <span class="n">_y</span> <span class="o">=</span> <span class="n">_lpf</span><span class="p">(</span><span class="n">_y</span><span class="p">);</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And finally send the processed sample off to the output stream:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="n">left</span><span class="p">[</span><span class="n">frame</span><span class="p">]</span> <span class="o">=</span> <span class="n">_y</span><span class="p">;</span>
+   <span class="n">right</span><span class="p">[</span><span class="n">frame</span><span class="p">]</span> <span class="o">=</span> <span class="n">_y</span><span class="p">;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_main_function">The Main Function</h3>
+<div class="paragraph">
+<p>In the main function, we make sure to load our test audio file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="n">q</span><span class="o">::</span><span class="n">wav_memory</span>     <span class="n">wav</span><span class="p">{</span> <span class="s">"audio_files/Low E.wav"</span> <span class="p">};</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The we initialize our audio stream by providing with the wave file and some
+drastic cutoff frequencies to make the result of the processing very apparent.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="n">filter_processor</span>   <span class="n">proc</span><span class="p">{</span> <span class="n">wav</span><span class="p">,</span> <span class="mi">1</span><span class="n">_kHz</span><span class="p">,</span> <span class="mi">2</span><span class="n">_kHz</span> <span class="p">};</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now we&#8217;re ready to start the audio stream and wait for the audio file to be played to the end.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="k">if</span> <span class="p">(</span><span class="n">proc</span><span class="p">.</span><span class="n">is_valid</span><span class="p">())</span>
+   <span class="p">{</span>
+      <span class="n">proc</span><span class="p">.</span><span class="n">start</span><span class="p">();</span>
+      <span class="n">q</span><span class="o">::</span><span class="n">sleep</span><span class="p">(</span><span class="n">q</span><span class="o">::</span><span class="n">duration</span><span class="p">(</span><span class="n">wav</span><span class="p">.</span><span class="n">length</span><span class="p">())</span> <span class="o">/</span> <span class="n">wav</span><span class="p">.</span><span class="n">sps</span><span class="p">());</span>
+      <span class="n">proc</span><span class="p">.</span><span class="n">stop</span><span class="p">();</span>
+   <span class="p">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_delay_effects">Delay effects</h3>
+<div class="paragraph">
+<p>Similarly, in the delay.cpp example also found in the example folder,
+we have our delay processor:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="k">struct</span> <span class="n">delay_processor</span> <span class="o">:</span> <span class="n">q</span><span class="o">::</span><span class="n">port_audio_stream</span>
+   <span class="p">{</span>
+      <span class="n">delay_processor</span><span class="p">(</span>
+         <span class="n">q</span><span class="o">::</span><span class="n">wav_memory</span><span class="o">&amp;</span> <span class="n">wav</span>
+       <span class="p">,</span> <span class="n">q</span><span class="o">::</span><span class="n">duration</span> <span class="n">delay</span>
+       <span class="p">,</span> <span class="kt">float</span> <span class="n">feedback</span>
+      <span class="p">)</span>
+       <span class="o">:</span> <span class="n">port_audio_stream</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">wav</span><span class="p">.</span><span class="n">sps</span><span class="p">())</span>
+       <span class="p">,</span> <span class="n">_wav</span><span class="p">(</span><span class="n">wav</span><span class="p">)</span>
+       <span class="p">,</span> <span class="n">_delay</span><span class="p">(</span><span class="n">delay</span><span class="p">,</span> <span class="n">wav</span><span class="p">.</span><span class="n">sps</span><span class="p">())</span>
+       <span class="p">,</span> <span class="n">_feedback</span><span class="p">(</span><span class="n">feedback</span><span class="p">)</span>
+      <span class="p">{}</span>
+
+      <span class="kt">void</span> <span class="n">process</span><span class="p">(</span><span class="n">out_channels</span> <span class="k">const</span><span class="o">&amp;</span> <span class="n">out</span><span class="p">)</span>
+      <span class="p">{</span>
+         <span class="k">auto</span> <span class="n">left</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+         <span class="k">auto</span> <span class="n">right</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+         <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">frame</span> <span class="o">:</span> <span class="n">out</span><span class="p">.</span><span class="n">frames</span><span class="p">())</span>
+         <span class="p">{</span>
+            <span class="c1">// Get the next input sample
+</span>            <span class="k">auto</span> <span class="n">s</span> <span class="o">=</span> <span class="n">_wav</span><span class="p">()[</span><span class="mi">0</span><span class="p">];</span>
+
+            <span class="c1">// Mix the signal and the delayed signal
+</span>            <span class="n">_y</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">_delay</span><span class="p">();</span>
+
+            <span class="c1">// Feed back the result to the delay
+</span>            <span class="n">_delay</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">_y</span> <span class="o">*</span> <span class="n">_feedback</span><span class="p">);</span>
+
+            <span class="c1">// Output
+</span>            <span class="n">left</span><span class="p">[</span><span class="n">frame</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span>
+            <span class="n">right</span><span class="p">[</span><span class="n">frame</span><span class="p">]</span> <span class="o">=</span> <span class="n">_y</span><span class="p">;</span>
+         <span class="p">}</span>
+      <span class="p">}</span>
+
+      <span class="n">q</span><span class="o">::</span><span class="n">wav_memory</span><span class="o">&amp;</span>    <span class="n">_wav</span><span class="p">;</span>
+      <span class="n">q</span><span class="o">::</span><span class="n">delay</span>          <span class="n">_delay</span><span class="p">;</span>
+      <span class="kt">float</span>             <span class="n">_feedback</span><span class="p">;</span>
+      <span class="kt">float</span>             <span class="n">_y</span> <span class="o">=</span> <span class="mf">0.0</span><span class="n">f</span><span class="p">;</span>
+   <span class="p">};</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The only difference here is that we initialize a delay effect and provide
+a value (between 0 to 1) to define how much feedback the delay will have:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="n">_delay</span><span class="p">(</span><span class="n">delay</span><span class="p">,</span> <span class="n">wav</span><span class="p">.</span><span class="n">sps</span><span class="p">())</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="n">_feedback</span><span class="p">(</span><span class="n">feedback</span><span class="p">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In our process loop we mix the current sample with the sum of delayed samples
+and make sure to push the new sample to the delay stack with the defined feedback gain.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="n">_y</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">_delay</span><span class="p">();</span>
+   <span class="n">_delay</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">_y</span> <span class="o">*</span> <span class="n">_feedback</span><span class="p">);</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the main function we make sure to initiliaze our delay processor
+with the test audio file and delay and feedback parameters.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="c++">   <span class="n">delay_processor</span>   <span class="n">proc</span><span class="p">{</span> <span class="n">wav</span><span class="p">,</span> <span class="mi">350</span><span class="n">_ms</span><span class="p">,</span> <span class="mf">0.85</span><span class="n">f</span> <span class="p">};</span></code></pre>
+</div>
+</div>
+<hr>
+<div class="paragraph">
+<p><em>Copyright (c) 2014-2023 Joel de Guzman. All rights reserved.</em>
+<em>Distributed under the <a href="https://opensource.org/licenses/MIT">MIT License</a></em></p>
+</div>
 </div>
 </div>
 </div>

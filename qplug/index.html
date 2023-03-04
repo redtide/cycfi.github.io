@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.16">
-<title>Home - Cycfi</title>
+<title>QPlug Audio Plugin Library</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -439,35 +439,74 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>Home - Cycfi</h1>
+<h1>QPlug Audio Plugin Library</h1>
 </div>
 <div id="content">
-<div id="preamble">
+<div class="sect1">
+<h2 id="_introduction">Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Welcome to Cycfi organization!</p>
+<p>QPlug is modern c library for building Audio plugins that target various
+Audio plugin architectures. Qplug is designed to be easy-to-use and has a
+clean, and simple modern c API.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_about_the_author">About the Author</h2>
+<h2 id="_design_and_architecture">Design and Architecture</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Joel got into electronics and programming in the 80s because almost
-everything in music, his first love, is becoming electronic and digital.
-Since then, he builds his own guitars, effect boxes and synths. He enjoys
-playing distortion-laden rock guitar, composes and produces his own music in
-his home studio.</p>
+<p>QPlug sits on top of the <a href="https://github.com/cycfi/elements">Elements C&#43;&#43; GUI library</a>
+which handles user interface, and the
+<a href="https://github.com/cycfi/q">Q C&#43;&#43; Audio Digital Signal Processing library</a>
+for MIDI and digital signal processing (DSP).
+Q provides the standardized realtime audio and MIDI streaming interfaces.</p>
 </div>
 <div class="paragraph">
-<p>Joel de Guzman is the principal architect and engineer at
-<a href="https://www.cycfi.com/">Cycfi Research</a> and a consultant at <a href="https://ciere.com/">Ciere Consulting</a>.
-He is a software engineer specializing in advanced C++ and an advocate of Open Source.
-He has authored a number of highly successful Open Source projects such as
-<a href="https://tinyurl.com/ydhotlaf">Boost.Spirit</a>, <a href="https://tinyurl.com/y6vkeo5t">Boost.Phoenix</a>
-and <a href="https://tinyurl.com/ybn5oq9v">Boost.Fusion</a>.
-These libraries are all part of the <a href="https://tinyurl.com/jubgged">Boost Libraries</a>,
-a well respected, peer-reviewed, Open Source, collaborative development effort.</p>
+<p><span class="image"><img src="./../../assets/img/qplug/qplug-arch.png" alt="qplug architecture" width="35%"></span></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="https://github.com/cycfi/elements">Elements</a> is a lightweight, fine-grained,
+resolution independent, modular GUI library.
+You compose very fine-grained, flyweight “elements” to form deep element hierarchies
+using a declarative interface with heavy emphasis on reuse.</p>
+</li>
+<li>
+<p><a href="https://github.com/cycfi/q">Q</a> is a cross-platform C library for Audio
+Digital Signal Processing. The Q DSP Library is designed to be simple and
+elegant, leveraging the power of modern C and efficient use of
+functional programming techniques, to simplify complex DSP programming
+tasks without sacrificing readability.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>QPlug currently targets AU (<a href="https://apple.co/2WY3nex">Audio Unit</a>) and
+<a href="https://www.steinberg.net/en/company/technologies/vst3.html">VST3</a> using
+<a href="https://github.com/iPlug2/iPlug2">iPlug2</a> as the backend engine. QPlug is
+not a framework. It is a modular, and generic library, with loose coupling
+between its layers and modules. It is for that matter that QPlug is
+retargetable, with a clean, well isolated API which exposes a not-so-thin
+abstraction layer on top of architecture-specific plugin frameworks such as
+VST and AU as well as architecture-independent plugin frameworks such as
+iPlug. It is possible to use other DSP libraries alongside
+<a href="https://github.com/cycfi/q">Q</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>At one point, QPlug directly targeted Au and VST, before settling down to use
+iPlug2 which already supports various plugin architectures.</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_setup_and_installation">Setup and Installation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>WIP&#8230;&#8203;</p>
 </div>
 </div>
 </div>
