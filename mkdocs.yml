@@ -1,0 +1,34 @@
+INHERIT: docs/common/config.yml
+
+site_name: "Cycfi"
+site_url: "https://cycfi.github.io"
+site_description: "Cycfi website"
+
+#repo_name: "cycfi/cycfi.github.io"
+#repo_url: "https://github.com/cycfi/cycfi.github.io"
+#copyright: |
+#  Copyright &copy; 2014-2023 Joel de Guzman. All rights reserved.
+#  Distributed under the
+#  <a href="https://opensource.org/licenses/MIT">MIT License</a></p>
+
+extra:
+  social:
+  - icon: "fontawesome/brands/github"
+    link: "https://github.com/cycfi/"
+    name: "Cycfi on GitHub"
+
+  - icon: "fontawesome/brands/discord"
+    link: "https://discord.gg/4MymV4EaY5"
+    name: "Cycfi on Discord"
+
+  - icon: "fontawesome/brands/facebook"
+    link: "https://www.facebook.com/groups/cycfi/"
+    name: "Cycfi on Facebook"
+
+# theme:
+#   favicon: "assets/ico/favicon.ico"
+#   logo:    "assets/img/logo.png"
+
+nav:
+- "index.md"
+- "faq.md"

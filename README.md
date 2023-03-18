@@ -1,34 +1,26 @@
-# [Cycfi] documentation website repository
+# Cycfi documentation website
 
-The Cycfi website is built using [Jekyll] and the following tools:
+The [Cycfi][1] website is built with [MKDocs][2] using [Material theme][3].
 
-- [Bundler] Ruby gems manager, required to run Jekyll and related plugins /
-  dependencies.
+## Installation
 
-- [Yarn] package manager, to install [Bootstrap] and related tools to compile and
-  minify the website styles and scripts.
+Requires Python, then:
 
-## Test with Jekyll locally
+```
+pip install mkdocs-material
+```
 
-In order to test the website without having a webserver running and also see
-the changes in real time use the `jekyll.sh` script to run [Jekyll] locally from
-the current directory, using the `-a` parameter if it is also necessary
-to rebuild the style and script assets.
+## Run
 
-It requires [Ruby] to be installed; [RVM] is the preferred choice for this.
-Other dependecies like Bundler and Yarn will be installed locally
-respectively in the `.bundle` and `node_modules` directories.
+To view the site locally:
 
-The current Gemfile configuration is set to use the same Jekyll and related
-gem versions as in [GitHub pages].
+```
+mkdocs serve
+```
 
-The website will be available at <http://localhost:4000/>.
+The site should be available at <http://127.0.0.1:8000>
 
-[Bootstrap]:    https://getbootstrap.com/
-[Bundler]:      https://bundler.io/
-[Cycfi]:        https://cycfi.github.io/
-[GitHub pages]: https://pages.github.com/versions/
-[Jekyll]:       https://jekyllrb.com/
-[Ruby]:         https://www.ruby-lang.org/en/
-[RVM]:          http://rvm.io/
-[Yarn]:         https://yarnpkg.com/
+
+[1]: https://cycfi.github.io/
+[2]: https://www.mkdocs.org
+[3]: https://github.com/squidfunk/mkdocs-material
